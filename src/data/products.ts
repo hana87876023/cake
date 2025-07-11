@@ -31,9 +31,9 @@ export const products: Product[] = [
     description: "新鮮な季節のフルーツをふんだんに使用した、当店の定番タルトです。サクサクのタルト生地に、なめらかなカスタードクリーム、そして色とりどりのフルーツが美しく飾られています。",
     shortDescription: "季節のフルーツとカスタードの定番タルト",
     category: "フルーツ",
-    image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80",
+    image: "/images/fruit-tart.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80",
+      "/images/fruit-tart.jpeg",
       "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=800&q=80"
     ],
     ingredients: ["小麦粉", "バター", "卵", "牛乳", "砂糖", "季節のフルーツ", "バニラ"],
