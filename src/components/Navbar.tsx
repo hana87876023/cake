@@ -2,10 +2,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '../contexts/CartContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const location = useLocation();
+  const { items, getTotalItems } = useCart();
 
   const navigation = [
     { name: 'ホーム', href: '/' },
@@ -82,6 +85,48 @@ const Navbar = () => {
                 </Link>
               ))}
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showCart && (
+          <motion.div
+            initial={{ opacity: 0, x: 300 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 300 }}
+            transition={{ duration: 0.3 }}
+            className="fixed right-0 top-20 bg-white shadow-xl rounded-l-lg p-6 w-80 max-h-96 overflow-y-auto z-40"
+          >
+            <h3 className="text-lg font-semibold mb-4">カート内の商品</h3>
+            {items.length === 0 ? (
+              <p className="text-gray-500">カートは空です</p>
+            ) : (
+              <div className="space-y-3">
+                {items.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center p-2 bg-light-gray rounded">
+                    <div>
+                      <p className="font-medium">{item.product.name}</p>
+                      <p className="text-sm text-gray-600">
+                        {item.size && `サイズ: ${item.size} • `}
+                        数量: {item.quantity}
+                      </p>
+                    </div>
+                    <p className="font-semibold">
+                      ¥{((item.size && item.product.sizes?.find(s => s.name === item.size)?.price) || item.product.price) * item.quantity}
+                    </p>
+                  </div>
+                ))}
+                <div className="border-t pt-3">
+                  <p className="text-lg font-bold">
+                    合計: ¥{items.reduce((total, item) => {
+                      const price = (item.size && item.product.sizes?.find(s => s.name === item.size)?.price) || item.product.price;
+                      return total + price * item.quantity;
+                    }, 0).toLocaleString()}
+                  </p>
+                </div>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

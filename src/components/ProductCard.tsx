@@ -1,13 +1,35 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Info } from 'lucide-react';
+import { ShoppingBag, Info, Heart, Check } from 'lucide-react';
 import type { Product } from '../data/products';
+import { useCart } from '../contexts/CartContext';
+import { useFavorites } from '../contexts/FavoritesContext';
+import { useState } from 'react';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const { addToCart } = useCart();
+  const { isFavorite, addToFavorites, removeFromFavorites } = useFavorites();
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    addToCart(product, 1, product.sizes?.[0].name);
+    setShowAddedMessage(true);
+    setTimeout(() => setShowAddedMessage(false), 2000);
+  };
+
+  const handleToggleFavorite = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isFavorite(product.id)) {
+      removeFromFavorites(product.id);
+    } else {
+      addToFavorites(product.id);
+    }
+  };
   return (
     <motion.div
       className="group relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100"
@@ -40,9 +62,21 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 ))}
               </div>
               <div className="flex gap-2">
-                <button className="flex-1 bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-md transition-colors duration-300 flex items-center justify-center gap-2">
-                  <ShoppingBag className="h-4 w-4" />
-                  注文する
+                <button
+                  onClick={handleAddToCart}
+                  className="flex-1 bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-md transition-colors duration-300 flex items-center justify-center gap-2"
+                >
+                  {showAddedMessage ? (
+                    <>
+                      <Check className="h-4 w-4" />
+                      追加済み
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingBag className="h-4 w-4" />
+                      カートに追加
+                    </>
+                  )}
                 </button>
                 <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-md transition-colors duration-300">
                   <Info className="h-4 w-4" />
@@ -53,8 +87,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
 
         <div className="p-6">
-          <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+          <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors duration-300 flex items-center gap-2">
             {product.name}
+            {isFavorite(product.id) && (
+              <Heart className="h-5 w-5 text-red-500 fill-red-500" />
+            )}
           </h3>
           <div className="flex items-center justify-between">
             <span className="text-2xl font-bold text-primary">

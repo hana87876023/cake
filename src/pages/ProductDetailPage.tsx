@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ShoppingBag, Heart, Share2, Minus, Plus } from 'lucide-react';
+import { ChevronLeft, ShoppingBag, Heart, Share2, Minus, Plus, Check, ExternalLink } from 'lucide-react';
 import { products } from '../data/products';
+import { useCart } from '../contexts/CartContext';
+import { useFavorites } from '../contexts/FavoritesContext';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -10,6 +12,11 @@ const ProductDetailPage = () => {
   const [selectedSize, setSelectedSize] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  
+  const { addToCart } = useCart();
+  const { isFavorite, addToFavorites, removeFromFavorites } = useFavorites();
 
   if (!product) {
     return (
@@ -73,8 +80,11 @@ const ProductDetailPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl lg:text-4xl font-serif font-bold mb-4">
+            <h1 className="text-3xl lg:text-4xl font-serif font-bold mb-4 flex items-center gap-3">
               {product.name}
+              {isFavorite(product.id) && (
+                <Heart className="h-8 w-8 text-red-500 fill-red-500" />
+              )}
             </h1>
             <p className="text-gray-400 mb-6">{product.description}</p>
 
@@ -128,16 +138,100 @@ const ProductDetailPage = () => {
 
             {/* Actions */}
             <div className="flex gap-4 mb-8">
-              <button className="flex-1 btn-primary flex items-center justify-center gap-2">
-                <ShoppingBag className="h-5 w-5" />
-                カートに追加
+              <button
+                onClick={() => {
+                  const size = product.sizes?.[selectedSize].name;
+                  addToCart(product, quantity, size);
+                  setShowAddedMessage(true);
+                  setTimeout(() => setShowAddedMessage(false), 2000);
+                }}
+                className="flex-1 btn-primary flex items-center justify-center gap-2"
+              >
+                {showAddedMessage ? (
+                  <>
+                    <Check className="h-5 w-5" />
+                    カートに追加しました
+                  </>
+                ) : (
+                  <>
+                    <ShoppingBag className="h-5 w-5" />
+                    カートに追加
+                  </>
+                )}
               </button>
-              <button className="p-3 bg-medium-gray hover:bg-gray-700 rounded-lg transition-colors">
-                <Heart className="h-5 w-5" />
+              <button
+                onClick={() => {
+                  if (isFavorite(product.id)) {
+                    removeFromFavorites(product.id);
+                  } else {
+                    addToFavorites(product.id);
+                  }
+                }}
+                className={`p-3 rounded-lg transition-colors ${
+                  isFavorite(product.id)
+                    ? 'bg-red-500 hover:bg-red-600 text-white'
+                    : 'bg-light-gray hover:bg-gray-200'
+                }`}
+              >
+                <Heart className={`h-5 w-5 ${isFavorite(product.id) ? 'fill-white' : ''}`} />
               </button>
-              <button className="p-3 bg-medium-gray hover:bg-gray-700 rounded-lg transition-colors">
-                <Share2 className="h-5 w-5" />
-              </button>
+              <div className="relative">
+                <button
+                  onClick={() => setShowShareMenu(!showShareMenu)}
+                  className="p-3 bg-light-gray hover:bg-gray-200 rounded-lg transition-colors"
+                >
+                  <Share2 className="h-5 w-5" />
+                </button>
+                {showShareMenu && (
+                  <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg p-4 w-64 z-10">
+                    <h4 className="font-semibold mb-3">共有する</h4>
+                    <div className="space-y-2">
+                      <a
+                        href={`https://line.me/R/share?text=${encodeURIComponent(
+                          `${product.name} - Patisserie Belle Tarte\n${window.location.href}`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-2 hover:bg-light-gray rounded transition-colors"
+                      >
+                        <span className="text-green-500 font-bold">LINE</span>
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                          `${product.name} - Patisserie Belle Tarte`
+                        )}&url=${encodeURIComponent(window.location.href)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-2 hover:bg-light-gray rounded transition-colors"
+                      >
+                        <span className="text-blue-400 font-bold">Twitter</span>
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                          window.location.href
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-2 hover:bg-light-gray rounded transition-colors"
+                      >
+                        <span className="text-blue-600 font-bold">Facebook</span>
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(window.location.href);
+                          alert('リンクをコピーしました！');
+                        }}
+                        className="flex items-center gap-3 p-2 hover:bg-light-gray rounded transition-colors w-full text-left"
+                      >
+                        <span className="font-bold">リンクをコピー</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Details */}
