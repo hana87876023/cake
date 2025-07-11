@@ -171,10 +171,10 @@ export const products: Product[] = [
     description: "香ばしいナッツとほろ苦いキャラメルの組み合わせ。アーモンド、くるみ、ピーカンナッツを贅沢に使用し、食感も楽しめる大人のタルトです。",
     shortDescription: "香ばしいナッツとキャラメルの絶妙タルト",
     category: "ナッツ",
-    image: "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=800&q=80",
+    image: "/images/caramel-nuts-tart.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=800&q=80",
-      "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=800&q=80"
+      "/images/caramel-nuts-tart.jpeg",
+      "/images/caramel-nuts-tart.jpeg"
     ],
     ingredients: ["小麦粉", "バター", "卵", "各種ナッツ", "キャラメル", "生クリーム", "砂糖"],
     allergens: ["小麦", "卵", "乳", "ナッツ"],
