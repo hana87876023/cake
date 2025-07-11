@@ -143,10 +143,10 @@ export const products: Product[] = [
     description: "爽やかなレモンカードを使用した酸味が心地よいタルト。メレンゲの甘さとレモンの酸味が絶妙なバランス。暑い季節にぴったりの一品です。",
     shortDescription: "爽やかな酸味が魅力のレモンタルト",
     category: "フルーツ",
-    image: "https://images.unsplash.com/photo-1639024471283-03518883512d?w=800&q=80",
+    image: "/images/lemon-tart.jpg",
     images: [
-      "https://images.unsplash.com/photo-1639024471283-03518883512d?w=800&q=80",
-      "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=800&q=80"
+      "/images/lemon-tart.jpg",
+      "/images/lemon-tart.jpg"
     ],
     ingredients: ["小麦粉", "バター", "卵", "レモン", "砂糖", "メレンゲ"],
     allergens: ["小麦", "卵", "乳"],
