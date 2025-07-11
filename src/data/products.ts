@@ -115,10 +115,10 @@ export const products: Product[] = [
     description: "京都産の上質な抹茶を使用した和風タルト。ほろ苦い抹茶クリームと甘さ控えめの粒あんが絶妙にマッチ。和と洋の融合をお楽しみください。",
     shortDescription: "和洋折衷の上品な抹茶タルト",
     category: "和風",
-    image: "https://images.unsplash.com/photo-1605466237309-f10ddfd18c59?w=800&q=80",
+    image: "/images/matcha-tart.webp",
     images: [
-      "https://images.unsplash.com/photo-1605466237309-f10ddfd18c59?w=800&q=80",
-      "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=800&q=80"
+      "/images/matcha-tart.webp",
+      "/images/matcha-tart.webp"
     ],
     ingredients: ["小麦粉", "バター", "卵", "抹茶", "あずき", "生クリーム", "砂糖"],
     allergens: ["小麦", "卵", "乳"],
