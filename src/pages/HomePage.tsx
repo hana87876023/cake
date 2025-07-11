@@ -18,7 +18,7 @@ const HomePage = () => {
             backgroundPosition: 'center',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-dark-gray/70 to-dark-gray/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
         </div>
 
         <div className="container-custom relative z-10 text-center">
@@ -28,10 +28,10 @@ const HomePage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl font-serif font-bold mb-4">
-              <span className="text-gold">Patisserie</span>{' '}
+              <span className="text-primary">Patisserie</span>{' '}
               <span className="text-white">Belle Tarte</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+            <p className="text-xl md:text-2xl text-white/90 mb-8 font-light">
               手作りの温もりと、本格フランス菓子の融合
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -51,8 +51,8 @@ const HomePage = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
-          <div className="w-6 h-10 border-2 border-gold rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gold rounded-full mt-2" />
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2" />
           </div>
         </motion.div>
       </section>
@@ -67,7 +67,7 @@ const HomePage = () => {
       <CustomerReviews />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-gold/10 to-gold/5">
+      <section className="py-20 bg-gradient-to-r from-cream to-white">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -78,7 +78,7 @@ const HomePage = () => {
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               特別な日のタルトをお探しですか？
             </h2>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
               お誕生日、記念日、パーティーなど、特別な日のためのオーダーメイドタルトも承っております。
             </p>
             <Link to="/contact" className="btn-primary inline-flex items-center">

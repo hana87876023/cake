@@ -7,11 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'gold': '#D4AF37',
-        'dark-gold': '#B8961F',
-        'cream': '#FFF5E6',
-        'dark-gray': '#1A1A1A',
-        'medium-gray': '#2D2D2D',
+        'primary': '#8B4513',  // Saddle Brown - 落ち着いた茶色
+        'primary-dark': '#654321',  // Dark Brown
+        'accent': '#D2691E',  // Chocolate
+        'cream': '#FFF8DC',  // Cornsilk
+        'light-gray': '#F5F5F5',  // WhiteSmoke
+        'medium-gray': '#E5E5E5',  // Light Gray
+        'text-gray': '#333333',  // Dark Gray for text
       },
       fontFamily: {
         'serif': ['Playfair Display', 'serif'],

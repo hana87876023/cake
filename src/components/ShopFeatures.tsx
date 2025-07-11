@@ -26,7 +26,7 @@ const features = [
 
 const ShopFeatures = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-dark-gray to-medium-gray">
+    <section className="py-20 bg-gradient-to-b from-light-gray to-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ const ShopFeatures = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             私たちのこだわり
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Belle Tarteが大切にしている4つの約束
           </p>
         </motion.div>
@@ -54,14 +54,14 @@ const ShopFeatures = () => {
               className="text-center group"
             >
               <motion.div
-                className="w-20 h-20 mx-auto mb-4 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300"
+                className="w-20 h-20 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <feature.icon className="h-10 w-10 text-gold" />
+                <feature.icon className="h-10 w-10 text-primary" />
               </motion.div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-400 text-sm">{feature.description}</p>
+              <p className="text-gray-600 text-sm">{feature.description}</p>
             </motion.div>
           ))}
         </div>

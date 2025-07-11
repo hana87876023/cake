@@ -45,7 +45,7 @@ const CustomerReviews = () => {
   };
 
   return (
-    <section className="py-20 bg-dark-gray">
+    <section className="py-20 bg-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,13 +57,13 @@ const CustomerReviews = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             お客様の声
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Belle Tarteをご利用いただいたお客様からの嬉しいお声
           </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto relative">
-          <div className="bg-medium-gray rounded-lg p-8 md:p-12">
+          <div className="bg-light-gray rounded-lg p-8 md:p-12 shadow-lg">
             <motion.div
               key={currentIndex}
               initial={{ opacity: 0, x: 20 }}
@@ -77,36 +77,36 @@ const CustomerReviews = () => {
                     key={i}
                     className={`h-5 w-5 ${
                       i < reviews[currentIndex].rating
-                        ? 'text-gold fill-gold'
-                        : 'text-gray-600'
+                        ? 'text-yellow-400 fill-yellow-400'
+                        : 'text-gray-300'
                     }`}
                   />
                 ))}
               </div>
               
-              <p className="text-lg text-gray-300 text-center mb-6 italic">
+              <p className="text-lg text-gray-700 text-center mb-6 italic">
                 "{reviews[currentIndex].comment}"
               </p>
               
               <div className="text-center">
                 <p className="font-semibold">{reviews[currentIndex].name}</p>
-                <p className="text-sm text-gray-400">{reviews[currentIndex].date}</p>
+                <p className="text-sm text-gray-500">{reviews[currentIndex].date}</p>
               </div>
             </motion.div>
           </div>
 
           <button
             onClick={prevReview}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-gold/20 hover:bg-gold/30 backdrop-blur-sm p-2 rounded-full transition-colors duration-300"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-primary/20 hover:bg-primary/30 backdrop-blur-sm p-2 rounded-full transition-colors duration-300"
           >
-            <ChevronLeft className="h-6 w-6 text-gold" />
+            <ChevronLeft className="h-6 w-6 text-primary" />
           </button>
 
           <button
             onClick={nextReview}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-gold/20 hover:bg-gold/30 backdrop-blur-sm p-2 rounded-full transition-colors duration-300"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-primary/20 hover:bg-primary/30 backdrop-blur-sm p-2 rounded-full transition-colors duration-300"
           >
-            <ChevronRight className="h-6 w-6 text-gold" />
+            <ChevronRight className="h-6 w-6 text-primary" />
           </button>
 
           <div className="flex justify-center mt-6 space-x-2">
@@ -116,8 +116,8 @@ const CustomerReviews = () => {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-gold w-8'
-                    : 'bg-gray-600 hover:bg-gray-500'
+                    ? 'bg-primary w-8'
+                    : 'bg-gray-400 hover:bg-gray-500'
                 }`}
               />
             ))}

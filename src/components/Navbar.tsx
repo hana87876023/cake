@@ -18,12 +18,12 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-dark-gray/95 backdrop-blur-md sticky top-0 z-50 border-b border-gold/20">
+    <nav className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-medium-gray shadow-sm">
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-serif font-bold text-gold">Patisserie</span>
-            <span className="text-2xl font-serif font-light text-white">Belle Tarte</span>
+            <span className="text-2xl font-serif font-bold text-primary">Patisserie</span>
+            <span className="text-2xl font-serif font-light text-text-gray">Belle Tarte</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -33,16 +33,16 @@ const Navbar = () => {
                 to={item.href}
                 className={`text-sm font-medium transition-colors duration-300 ${
                   isActive(item.href)
-                    ? 'text-gold'
-                    : 'text-gray-300 hover:text-gold'
+                    ? 'text-primary'
+                    : 'text-text-gray hover:text-primary'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <button className="relative p-2 hover:text-gold transition-colors">
+            <button className="relative p-2 hover:text-primary transition-colors">
               <ShoppingBag className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 h-4 w-4 bg-gold text-dark-gray text-xs rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 h-4 w-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">
                 0
               </span>
             </button>
@@ -50,7 +50,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:text-gold transition-colors"
+            className="md:hidden p-2 hover:text-primary transition-colors"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -64,7 +64,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-medium-gray"
+            className="md:hidden bg-light-gray"
           >
             <div className="container-custom py-4 space-y-4">
               {navigation.map((item) => (
@@ -74,8 +74,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block text-sm font-medium transition-colors duration-300 ${
                     isActive(item.href)
-                      ? 'text-gold'
-                      : 'text-gray-300 hover:text-gold'
+                      ? 'text-primary'
+                      : 'text-text-gray hover:text-primary'
                   }`}
                 >
                   {item.name}
