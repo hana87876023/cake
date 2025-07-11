@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patisserie Belle Tarte - サイトプレビュー</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #D4AF37;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .page-card {
+            background-color: #2d2d2d;
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #D4AF37;
+            transition: transform 0.3s;
+        }
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        h2 {
+            color: #D4AF37;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+        .features li:last-child {
+            border-bottom: none;
+        }
+        .tech-stack {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .tech-stack h3 {
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tech-tag {
+            background-color: #D4AF37;
+            color: #1a1a1a;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .status {
+            text-align: center;
+            padding: 20px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .status h3 {
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+        .complete {
+            color: #4CAF50;
+        }
+        .url-info {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎂 Patisserie Belle Tarte - プロジェクト完成状況</h1>
+        
+        <div class="status">
+            <h3>プロジェクトステータス</h3>
+            <p class="complete">✅ すべてのページが完成しました！</p>
+            <p>全6ページ + コンポーネント実装済み</p>
+        </div>
+
+        <div class="url-info">
+            <strong>開発サーバー:</strong><br>
+            npm run dev -- --host<br>
+            http://localhost:5173/
+        </div>
+
+        <div class="page-grid">
+            <div class="page-card">
+                <h2>🏠 ホームページ</h2>
+                <ul class="features">
+                    <li>✅ ヒーローセクション（フルスクリーン）</li>
+                    <li>✅ 人気商品展示（ホバーエフェクト付き）</li>
+                    <li>✅ お店の特徴（4つのアイコン）</li>
+                    <li>✅ お客様の声（カルーセル）</li>
+                    <li>✅ CTAセクション</li>
+                </ul>
+            </div>
+
+            <div class="page-card">
+                <h2>📋 メニューページ</h2>
+                <ul class="features">
+                    <li>✅ 全商品グリッド表示</li>
+                    <li>✅ カテゴリーフィルター</li>
+                    <li>✅ 価格帯フィルター</li>
+                    <li>✅ 並び替え機能</li>
+                    <li>✅ アニメーション付き</li>
+                </ul>
+            </div>
+
+            <div class="page-card">
+                <h2>🍰 商品詳細ページ</h2>
+                <ul class="features">
+                    <li>✅ 画像ギャラリー</li>
+                    <li>✅ サイズ・数量選択</li>
+                    <li>✅ 材料・アレルギー情報</li>
+                    <li>✅ 栄養成分表示</li>
+                    <li>✅ 関連商品表示</li>
+                </ul>
+            </div>
+
+            <div class="page-card">
+                <h2>👥 お店について</h2>
+                <ul class="features">
+                    <li>✅ 店舗ストーリー</li>
+                    <li>✅ シェフプロフィール（写真付き）</li>
+                    <li>✅ 4つの価値観</li>
+                    <li>✅ 歴史タイムライン</li>
+                    <li>✅ アニメーション演出</li>
+                </ul>
+            </div>
+
+            <div class="page-card">
+                <h2>📍 店舗情報</h2>
+                <ul class="features">
+                    <li>✅ 営業時間表</li>
+                    <li>✅ アクセス情報</li>
+                    <li>✅ Google Maps埋め込み</li>
+                    <li>✅ 店内写真ギャラリー</li>
+                    <li>✅ 連絡先詳細</li>
+                </ul>
+            </div>
+
+            <div class="page-card">
+                <h2>✉️ お問い合わせ</h2>
+                <ul class="features">
+                    <li>✅ コンタクトフォーム</li>
+                    <li>✅ フォームバリデーション</li>
+                    <li>✅ 送信成功メッセージ</li>
+                    <li>✅ FAQ（よくある質問）</li>
+                    <li>✅ 連絡先サイドバー</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h3>使用技術</h3>
+            <div class="tech-list">
+                <span class="tech-tag">React 18</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Framer Motion</span>
+                <span class="tech-tag">React Router</span>
+                <span class="tech-tag">Lucide Icons</span>
+            </div>
+        </div>
+
+        <div class="tech-stack" style="margin-top: 30px;">
+            <h3>デザイン特徴</h3>
+            <div class="tech-list">
+                <span class="tech-tag">ダークテーマ</span>
+                <span class="tech-tag">ゴールドアクセント</span>
+                <span class="tech-tag">レスポンシブ対応</span>
+                <span class="tech-tag">ホバーエフェクト</span>
+                <span class="tech-tag">スムーズアニメーション</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
