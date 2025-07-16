@@ -13,7 +13,7 @@ const HomePage = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1486427944299-aa1a5e0def7d?w=1920&q=80')`,
+            backgroundImage: `url('/images/bakery-hero.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
