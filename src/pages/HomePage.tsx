@@ -13,7 +13,7 @@ const HomePage = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('/images/bakery-hero.jpg')`,
+            backgroundImage: `url('/images/cafe-interior.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
