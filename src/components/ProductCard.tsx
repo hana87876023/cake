@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Info, Heart, Check } from 'lucide-react';
+import { ShoppingBag, Heart, Check } from 'lucide-react';
 import type { Product } from '../data/products';
 import { useCart } from '../contexts/CartContext';
 import { useFavorites } from '../contexts/FavoritesContext';
@@ -78,8 +78,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     </>
                   )}
                 </button>
-                <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-md transition-colors duration-300">
-                  <Info className="h-4 w-4" />
+                <button 
+                  onClick={handleToggleFavorite}
+                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-md transition-colors duration-300">
+                  <Heart className={`h-4 w-4 ${isFavorite(product.id) ? 'fill-white' : ''}`} />
                 </button>
               </div>
             </div>

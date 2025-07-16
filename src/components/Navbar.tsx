@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const location = useLocation();
-  const { items, getTotalItems } = useCart();
+  const { items } = useCart();
 
   const navigation = [
     { name: 'ホーム', href: '/' },
@@ -43,10 +43,12 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <button className="relative p-2 hover:text-primary transition-colors">
+            <button 
+              onClick={() => setShowCart(!showCart)}
+              className="relative p-2 hover:text-primary transition-colors">
               <ShoppingBag className="h-5 w-5" />
               <span className="absolute -top-1 -right-1 h-4 w-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">
-                0
+                {items.length}
               </span>
             </button>
           </div>
